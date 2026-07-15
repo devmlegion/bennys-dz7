@@ -1,0 +1,808 @@
+/* =========================================================
+   TEMA ÚNICO: NEON PERFORMANCE GT
+   ========================================================= */
+:root{
+  --red:#ff3b3b;
+  --red-light:#ff4b4b;
+  --blue:#00d4ff;
+  --cyan:#00d9ff;
+  --bg:#050505;
+  --panel:#121212;
+}
+
+*{
+  box-sizing:border-box;
+  font-family:"Segoe UI",Arial,sans-serif;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:
+    linear-gradient(rgba(8,8,8,.94),rgba(12,12,12,.97)),
+    url("logo.png"),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.015) 0px,
+      rgba(255,255,255,.015) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  background-size:cover,48%,auto;
+  background-position:center,center,center;
+  background-repeat:no-repeat,no-repeat,repeat;
+  background-attachment:fixed;
+  background-color:var(--bg);
+  color:#f2f2f2;
+  font-family:'Orbitron',sans-serif;
+  font-size:14px;
+  line-height:1.4;
+  overflow-x:hidden;
+}
+
+/* ================= TOP BAR ================= */
+/* ================= TOP BAR NEON ================= */
+
+.top-bar{
+  width:100%;
+  padding:12px 16px;
+  position:sticky;
+  top:0;
+  z-index:999;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(26,26,26,.96),
+      rgba(15,15,15,.98)
+    );
+
+  border-bottom:1px solid rgba(255,59,59,.35);
+
+  box-shadow:
+    0 0 20px rgba(255,59,59,.12),
+    inset 0 -1px 0 rgba(255,255,255,.04);
+}
+
+
+/* Logo em marca d'água */
+
+.top-bar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background-image:url("barbennys.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:auto 70%;
+
+  opacity:.10;
+
+  filter:
+    drop-shadow(0 0 12px rgba(255,59,59,.45));
+
+  pointer-events:none;
+}
+
+
+/* Conteúdo acima da logo */
+
+.top-bar > *,
+.top-bar-inner{
+  position:relative;
+  z-index:2;
+}
+
+.total-box{
+  grid-column:2;
+  text-align:center;
+  color:#fff;
+  font-size:18px;
+  text-shadow:0 0 8px rgba(255,255,255,.25);
+}
+
+.total-box strong{
+  display:block;
+  font-size:38px;
+  margin-top:2px;
+  color:var(--blue);
+  letter-spacing:3px;
+  text-shadow:
+    0 0 8px rgba(0,191,255,.8),
+    0 0 18px rgba(0,191,255,.45);
+  animation:totalPulse 2.8s ease-in-out infinite;
+}
+
+.reset-btn{
+  grid-column:3;
+  justify-self:end;
+  background:none;
+  border:none;
+  color:var(--red-light);
+  font-size:12px;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.reset-btn:hover{
+  background:var(--red);
+  color:#fff;
+  box-shadow:0 0 14px rgba(255,59,59,.45);
+}
+
+/* ================= GRID ================= */
+.container{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  padding:16px;
+}
+
+/* ================= BOX NEON GLASS ================= */
+.box{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22,22,22,.94),
+      rgba(10,10,10,.96)
+    );
+  border-radius:18px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  border:1px solid rgba(255,255,255,.05);
+  border-top:1px solid rgba(255,59,59,.35);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    0 0 14px rgba(255,59,59,.18),
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 0 18px rgba(255,255,255,.03);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,.05),
+      transparent
+    );
+  pointer-events:none;
+}
+
+.box::after{
+  content:"";
+  position:absolute;
+  top:-140%;
+  left:-40%;
+  width:70%;
+  height:320%;
+  background:
+    linear-gradient(
+      rgba(255,255,255,0),
+      rgba(255,255,255,.045),
+      rgba(255,255,255,0)
+    );
+  transform:rotate(25deg);
+  animation:shineMove 8s linear infinite;
+  pointer-events:none;
+}
+
+.box:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.45),
+    0 0 20px rgba(255,59,59,.22);
+}
+
+/* ================= TITULOS ================= */
+.box h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:20px;
+  color:var(--red);
+  text-align:left;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border-bottom:1px solid rgba(255,59,59,.25);
+  padding-bottom:6px;
+  text-shadow:0 0 10px rgba(255,59,59,.45);
+}
+
+.box h2:not(:first-of-type){
+  margin-top:12px;
+}
+
+/* ================= CAMPOS ================= */
+.field{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.field label{
+  flex:1;
+  text-align:left;
+  color:#d0d0d0;
+}
+
+/* ================= SELECT ================= */
+select{
+  flex:1;
+  padding:6px;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(#181818,#101010);
+  color:#fff;
+  font-size:14px;
+  transition:.25s ease;
+}
+
+select:focus{
+  outline:2px solid var(--red-light);
+  box-shadow:0 0 12px rgba(255,75,75,.25);
+}
+
+/* ================= CHECKBOX ================= */
+.checkbox-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.checkbox-row label{
+  color:#d0d0d0;
+  text-align:left;
+  cursor:pointer;
+}
+
+.checkbox-row.combo{
+  margin-top:8px;
+}
+
+input[type="checkbox"]{
+  accent-color:var(--red);
+}
+
+/* ================= INPUT QUANTIDADE ================= */
+.qty-input{
+  width:60px;
+  height:28px;
+  text-align:center;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(#181818,#101010);
+  color:#fff;
+  font-size:14px;
+  padding:2px 4px;
+}
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button{
+  -webkit-appearance:none;
+  margin:0;
+}
+
+.qty-input[type=number]{
+  -moz-appearance:textfield;
+}
+
+.qty-input:focus{
+  outline:none;
+  border-color:var(--red-light);
+  box-shadow:0 0 12px rgba(255,75,75,.25);
+}
+
+/* ================= CONTADORES ================= */
+.counter-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.counter-label{
+  color:#d0d0d0;
+  text-align:left;
+}
+
+.counter-controls{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.counter-controls button{
+  background:linear-gradient(#2a2a2a,#121212);
+  border:1px solid rgba(255,255,255,.08);
+  color:#fff;
+  padding:4px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:
+    background .2s ease,
+    transform .15s ease,
+    box-shadow .2s ease;
+}
+
+.counter-controls button:hover{
+  background:linear-gradient(var(--red-light),#a80000);
+  transform:translateY(-2px) scale(1.05);
+  box-shadow:0 0 14px rgba(255,75,75,.45);
+}
+
+.counter-controls button:active{
+  transform:scale(.95);
+}
+
+.counter-controls span{
+  min-width:20px;
+  text-align:center;
+}
+
+/* ================= PREÇOS ================= */
+.price{
+  color:var(--blue);
+  font-weight:bold;
+  margin-left:6px;
+  text-shadow:
+    0 0 8px rgba(0,212,255,.65),
+    0 0 16px rgba(0,212,255,.25);
+}
+
+/* ================= VENDAS / PARCERIA ================= */
+.vendas-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.vendas-checkbox-label{
+  font-size:14px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.vendas-checkbox-label input[type="checkbox"]{
+  opacity:0;
+  position:absolute;
+}
+
+/* ================= ÍCONE PARCERIA ================= */
+
+.vendas-checkbox-label i{
+  font-size:24px;
+  color:transparent;
+  -webkit-text-stroke:1.5px #580101;
+  text-shadow:none;
+  transition:
+    color .25s ease,
+    text-shadow .25s ease,
+    transform .25s ease;
+}
+
+
+.vendas-checkbox-label:hover i{
+  transform:scale(1.1);
+}
+
+
+/* ATIVADO - AZUL NEON DOS VALORES */
+.vendas-checkbox-label input:checked + i{
+  color:#00d4ff;
+  -webkit-text-stroke:0;
+  text-shadow:
+    0 0 8px rgba(0,212,255,.8),
+    0 0 16px rgba(0,212,255,.45);
+}
+
+.vendas-checkbox-label:hover i{
+  transform:scale(1.15);
+}
+
+.vendas-checkbox-label input:checked + i{
+  color:var(--cyan);
+  text-shadow:0 0 10px rgba(255, 120, 102, 0.8);
+}
+
+/* ================= ÍCONES ================= */
+label i,
+.counter-label i{
+  margin-left:8px;
+  color:var(--red-light);
+  text-shadow:
+    0 0 8px rgba(255,75,75,.55),
+    0 0 16px rgba(255,75,75,.25);
+}
+
+/* ================= COMISSÃO ================= */
+.comissao-row{
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.comissao-row #comissao30{
+  min-width:80px;
+  text-align:center;
+  font-weight:bold;
+  color:var(--blue);
+  text-shadow:
+    0 0 10px rgba(0,212,255,.75),
+    0 0 20px rgba(0,212,255,.35);
+}
+
+/* ================= BOT BAR ================= */
+/* ================= BOT BAR NEON ================= */
+
+.bot-bar{
+  position:sticky;
+  bottom:0;
+  width:100%;
+  z-index:998;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18,18,18,.96),
+      rgba(28,28,28,.98)
+    );
+
+  border-top:1px solid rgba(255,59,59,.18);
+  box-shadow:
+    0 -6px 18px rgba(255,59,59,.08);
+}
+
+
+/* Logo atrás do texto */
+
+.bot-bar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background-image:url("barbennys.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:auto 100%;
+
+  opacity:.12;
+
+  filter:
+    drop-shadow(0 0 12px rgba(255,59,59,.5));
+
+  pointer-events:none;
+}
+
+
+/* Conteúdo por cima */
+
+.bot-bar-inner{
+  position:relative;
+  z-index:2;
+  padding:10px 16px;
+  overflow:hidden;
+}
+
+.marquee{
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.marquee span{
+  display:inline-block;
+  padding-left:100%;
+
+  animation:marquee 40s linear infinite;
+
+  color:#ffffff;
+
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;
+  letter-spacing:2px;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.25),
+    0 0 14px rgba(255,59,59,.35);
+}
+
+/* ================= ANIMAÇÕES ================= */
+@keyframes rpmBar{
+  0%{left:-100%;}
+  100%{left:100%;}
+}
+
+@keyframes totalPulse{
+  0%,100%{
+    opacity:.9;
+  }
+  50%{
+    opacity:1;
+    transform:scale(1.03);
+  }
+}
+
+@keyframes shineMove{
+  0%{
+    left:-60%;
+  }
+  100%{
+    left:140%;
+  }
+}
+
+@keyframes marquee{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-100%);
+  }
+}
+
+/* ================= ÍCONES ANIMADOS ================= */
+.icon-gear{
+  animation:gearSpin 4s linear infinite;
+}
+
+@keyframes gearSpin{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.icon-wheel{
+  animation:wheelSpin 1.2s linear infinite;
+}
+
+@keyframes wheelSpin{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(-360deg);
+  }
+}
+
+.icon-fire{
+  animation:
+    fireAnim .8s ease-in-out infinite,
+    glowPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes fireAnim{
+  0%,100%{
+    transform:scale(1) rotate(-2deg);
+  }
+  50%{
+    transform:scale(1.15) rotate(2deg);
+  }
+}
+
+@keyframes glowPulse{
+  0%,100%{
+    text-shadow:0 0 4px rgba(255,80,80,.4);
+  }
+  50%{
+    text-shadow:0 0 14px rgba(255,80,80,.95);
+  }
+}
+
+.icon-rocket{
+  animation:rocketMove 1s ease-in-out infinite;
+}
+
+@keyframes rocketMove{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-4px);
+  }
+}
+
+.icon-shield{
+  animation:shieldPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes shieldPulse{
+  0%,100%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.12);
+    text-shadow:0 0 12px rgba(255,255,255,.45);
+  }
+}
+
+/* ================= SCROLLBAR NEON ================= */
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#0a0a0a;
+}
+
+::-webkit-scrollbar-thumb{
+  background:var(--red);
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(255,59,59,.6);
+}
+
+/* ================= ACCORDION MOBILE ================= */
+.accordion-content{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.accordion-content .field,
+.accordion-content .checkbox-row,
+.accordion-content .counter-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.accordion-content #blindagem{
+  margin-bottom:0;
+}
+
+@media(max-width:768px){
+
+  h2.servicos-header{
+    cursor:pointer;
+  }
+
+  .accordion-content{
+    overflow:hidden;
+    max-height:2000px;
+    transition:max-height .35s ease;
+  }
+
+  .accordion-content.closed{
+    max-height:0;
+  }
+
+  .accordion-content .checkbox-row,
+  .accordion-content .counter-row{
+    margin-bottom:6px;
+  }
+}
+
+/* ================= RESPONSIVO ================= */
+@media(max-width:1024px){
+
+  .container{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:768px){
+
+  .container{
+    grid-template-columns:1fr;
+  }
+
+  .top-bar-inner{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:6px;
+  }
+
+  .total-box{
+    grid-column:auto;
+  }
+
+  .reset-btn{
+    grid-column:auto;
+    justify-self:center;
+  }
+
+}
+
+/* ================= TRANSIÇÕES ================= */
+.box,
+select,
+.qty-input,
+.counter-controls button{
+  transition:
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+/* ================= ANIMAÇÃO DO ÍCONE ================= */
+.theme-toggle-btn{
+  grid-column:1;
+  justify-self:start;
+  background:none;
+  border:none;
+  color:var(--red-light);
+  font-size:14px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  position:relative;
+  padding:0;
+  transition:.25s ease;
+}
+
+
+/* Engrenagem */
+.theme-toggle-btn .icon-gear{
+  font-size:18px;
+  color:var(--red-light);
+  animation:gearSpin 5s linear infinite;
+  text-shadow:
+    0 0 8px rgba(255,59,59,.6);
+}
+
+
+/* Chave sobre a engrenagem */
+.theme-toggle-btn .icon-tool{
+  position:absolute;
+  font-size:10px;
+  color:#fff;
+  transform:rotate(-45deg);
+  text-shadow:
+    0 0 8px rgba(255,255,255,.8);
+}
+
+
+/* Mesmo comportamento da lixeira */
+.theme-toggle-btn:hover{
+  background:var(--red);
+  color:#fff;
+  border-radius:6px;
+  box-shadow:
+    0 0 14px rgba(255,59,59,.45);
+}
+
+
+.theme-toggle-btn:hover .icon-gear{
+  color:#fff;
+  filter:
+    drop-shadow(0 0 8px #fff);
+}
+
+
+.theme-toggle-btn:hover .icon-tool{
+  color:#fff;
+}
+
+/* ================= FIM ================= */
