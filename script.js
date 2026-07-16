@@ -86,7 +86,7 @@ function calculateComissao30() {
 
   });
 
-  const comissao = subtotal * 0.18;
+  const comissao = subtotal * 0.82;
 
   const campo = document.getElementById('comissao30');
 
