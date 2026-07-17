@@ -2,7 +2,7 @@
 const motor = document.getElementById('motor');
 const freio = document.getElementById('freio');
 const transmissao = document.getElementById('transmissao');
-const suspensao = document.getElementById('suspensao');
+const turbo = document.getElementById('turbo');
 const blindagem = document.getElementById('blindagem');
 
 /* ===== CHECKBOXES ===== */
@@ -23,13 +23,13 @@ fullTuning.addEventListener('change', () => {
     maxSelect(motor);
     maxSelect(freio);
     maxSelect(transmissao);
-    maxSelect(suspensao);
+    maxSelect(turbo);
     blindagem.selectedIndex = 0;
   } else {
     motor.selectedIndex = 0;
     freio.selectedIndex = 0;
     transmissao.selectedIndex = 0;
-    suspensao.selectedIndex = 0;
+    turbo.selectedIndex = 0;
     blindagem.selectedIndex = 0;
   }
   calculateTotal();
@@ -43,13 +43,13 @@ fullTuningBlind.addEventListener('change', () => {
     maxSelect(motor);
     maxSelect(freio);
     maxSelect(transmissao);
-    maxSelect(suspensao);
+    maxSelect(turbo);
     maxSelect(blindagem);
   } else {
     motor.selectedIndex = 0;
     freio.selectedIndex = 0;
     transmissao.selectedIndex = 0;
-    suspensao.selectedIndex = 0;
+    turbo.selectedIndex = 0;
     blindagem.selectedIndex = 0;
   }
   calculateTotal();
