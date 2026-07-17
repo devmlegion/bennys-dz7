@@ -32,7 +32,7 @@
 
 <!-- ================= MELHORIAS ================= -->
 <section class="box">
-  <h2 class="servicos-header">Melhorias</h2>
+  <h2 class="servicos-header">Itens Tuning</h2>
   <div class="field">
     <label>Motor</label>
     <select id="motor">
@@ -58,8 +58,8 @@
   </div>
 
   <div class="field">
-    <label>Suspensão</label>
-    <select id="suspensao">
+    <label>Turbo</label>
+    <select id="turbo">
       <option value="0">Nenhum</option>
       <option value="215000">Nível Máx - $ 215.000</option>
     </select>
@@ -69,103 +69,34 @@
     <label>Blindagem</label>
     <select id="blindagem">
       <option value="0">Nenhum</option>
-      <option value="200000">Nível Máx - $ 200.000</option>
+      <option value="600000">Nível Máx - $ 600.000</option>
     </select>
   </div>
 
-<h2 class="servicos-header">Combos</h2>
+<h2 class="servicos-header">Combos Tuning</h2>
 
-  <div class="checkbox-row combo">
+  <div class="checkbox-row">
     <label>Tuning sem Blindagem <span class="price">$ 1.000.000</span></label>
     <input type="checkbox" id="fullTuning">
   </div>
 
-  <div class="checkbox-row combo">
-    <label>Tuning com Blindagem <span class="price">$ 1.200.000</span></label>
+  <div class="checkbox-row">
+    <label>Tuning com Blindagem <span class="price">$ 1.600.000</span></label>
     <input type="checkbox" id="fullTuningBlind">
   </div>
 
-  <!-- <h2 class="vendas-header"> -->
-<h2 class="vendas-header vendas-section">
-  Vendas
-  <label class="vendas-checkbox-label">
-    <input type="checkbox" id="vendasSwitch">
-    <i class="fas fa-handshake" title="Parceria"></i>
-  </label>
-</h2>
+<!-- ================= EXTRAS ================= -->
+  <h2 class="servicos-header">Extras</h2>
 
-  <div class="counter-row">
-    <div class="counter-label">Kit<span class="price">$ 25.000</span></div>
+  <div class="checkbox-row"><label>Suspensão <span class="price">$ 215.000</span></label><input type="checkbox" data-price="215000"></div>
+  <div class="checkbox-row"><label>Blindagem de Pneu <span class="price">$ 50.000.000</span></label><input type="checkbox" data-price="50000000"></div>
 
-    <div class="counter-controls">
-      <button onclick="changeQty(this,-1)">-</button>
+<!-- ================= SERVIÇOS ================= -->
+  <h2 class="servicos-header">Serviços</h2>
 
-      <input
-        type="number"
-        class="qty-input"
-        min="0"
-        max="500"
-        value="0"
-        data-qty
-        data-price="25000"
-        oninput="updateInputQty(this)"
-      >
-
-      <button onclick="changeQty(this,1)">+</button>
-    </div>
-  </div>
-
-  <div class="counter-row">
-    <div class="counter-label">Pneu<span class="price">$ 15.000</span></div>
-
-    <div class="counter-controls">
-      <button onclick="changeQty(this,-1)">-</button>
-
-      <input
-        type="number"
-        class="qty-input"
-        min="0"
-        max="500"
-        value="0"
-        data-qty
-        data-price="15000"
-        oninput="updateInputQty(this)"
-      >
-
-      <button onclick="changeQty(this,1)">+</button>
-    </div>
-  </div>
-
-  <div class="counter-row">
-    <div class="counter-label">Chave<span class="price">$ 15.000</span></div>
-
-    <div class="counter-controls">
-      <button onclick="changeQty(this,-1)">-</button>
-
-      <input
-        type="number"
-        class="qty-input"
-        min="0"
-        max="500"
-        value="0"
-        data-qty
-        data-price="15000"
-        oninput="updateInputQty(this)"
-      >
-
-      <button onclick="changeQty(this,1)">+</button>
-    </div>
-  </div>
-
-  <div class="comissao-row counter-row">
-  <div class="counter-label">
-    Valor à Depositar para MEC
-  </div>
-
-  <div id="comissao30">
-    0
-  </div>
-</div>
+  <div class="checkbox-row"><label>Reparo na MEC <span class="price">$ 20.000</span></label><input type="checkbox" data-price="20000"></div>
+  <div class="checkbox-row"><label>Reparo no Sul <span class="price">$ 30.000</span></label><input type="checkbox" data-price="30000"></div>
+  <div class="checkbox-row"><label>Reparo no Norte <span class="price">$ 50.000</span></label><input type="checkbox" data-price="50000"></div>
 
 </section>
 
@@ -194,7 +125,9 @@
   <div class="checkbox-row"><label>Teto <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
   <div class="checkbox-row"><label>Enfeites <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
   <div class="checkbox-row"><label>Ponteiros <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
-  <div class="checkbox-row"><label>Painel <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
+  
+  <div class="checkbox-row"><label>Neon <span class="price">$ 80.000</span></label><input type="checkbox" data-price="80000"></div>
+  <div class="checkbox-row"><label>Xenon <span class="price">$ 80.000</span></label><input type="checkbox" data-price="80000"></div>
 
 </section>
 
@@ -212,17 +145,89 @@
   <div class="checkbox-row"><label>Capa do Farol <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
   <div class="checkbox-row"><label>Portas <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
   <div class="checkbox-row"><label>Gaiola <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
+  <div class="checkbox-row"><label>Painel <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
 
-  <div class="checkbox-row"><label>Neon <span class="price">$ 80.000</span></label><input type="checkbox" data-price="80000"></div>
-  <div class="checkbox-row"><label>Xenon <span class="price">$ 80.000</span></label><input type="checkbox" data-price="80000"></div>
+  <!-- <h2 class="vendas-header"> -->
+<h2 class="vendas-header vendas-section">
+  Só Vendedores
+  <label class="vendas-checkbox-label">
+    <input type="checkbox" id="vendasSwitch">
+    <i class="fas fa-handshake" title="Parceria"></i>
+  </label>
+</h2>
 
-<!-- ================= SERVIÇOS ================= -->
-  <h2 class="servicos-header">Serviços</h2>
+  <div class="counter-row combo">
+    <div class="counter-label">Kit<span class="price">$ 25.000</span></div>
 
-  <div class="checkbox-row combo"><label>Reparo na MEC <span class="price">$ 20.000</span></label><input type="checkbox" data-price="20000"></div>
-  <div class="checkbox-row"><label>Reparo no Sul <span class="price">$ 30.000</span></label><input type="checkbox" data-price="30000"></div>
-  <div class="checkbox-row"><label>Reparo no Norte <span class="price">$ 50.000</span></label><input type="checkbox" data-price="50000"></div>
-  <div class="checkbox-row"><label>Pneu na MEC <span class="price">$ 20.000</span></label><input type="checkbox" data-price="20000"></div>
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+
+      <input
+        type="number"
+        class="qty-input"
+        min="0"
+        max="500"
+        value="0"
+        data-qty
+        data-price="25000"
+        oninput="updateInputQty(this)"
+      >
+
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row combo">
+    <div class="counter-label">Pneu<span class="price">$ 15.000</span></div>
+
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+
+      <input
+        type="number"
+        class="qty-input"
+        min="0"
+        max="500"
+        value="0"
+        data-qty
+        data-price="15000"
+        oninput="updateInputQty(this)"
+      >
+
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row combo">
+    <div class="counter-label">Chave<span class="price">$ 15.000</span></div>
+
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+
+      <input
+        type="number"
+        class="qty-input"
+        min="0"
+        max="500"
+        value="0"
+        data-qty
+        data-price="15000"
+        oninput="updateInputQty(this)"
+      >
+
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="comissao-row counter-row">
+  <div class="counter-label">
+    Depositar para MEC
+  </div>
+
+  <div id="comissao30">
+    0
+  </div>
+</div>
 
 </section>
 
