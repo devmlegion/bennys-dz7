@@ -41,8 +41,6 @@ body{
 }
 
 /* ================= TOP BAR ================= */
-/* ================= TOP BAR NEON ================= */
-
 .top-bar{
   width:100%;
   padding:12px 16px;
@@ -215,8 +213,8 @@ body{
 
 /* ================= TITULOS ================= */
 .box h2{
-  font-family:'Orbitron',sans-serif;
-  font-size:20px;
+  font-family:"Segoe UI",Arial,sans-serif;
+  font-size:18px;
   color:var(--red);
   text-align:left;
   letter-spacing:2px;
