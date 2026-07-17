@@ -99,27 +99,6 @@ function calculateComissao30() {
 
 }
 
-/* ===== SWITCH VENDAS ( PNEU / REPARO /CHAVE DE RODAS ) ===== */
-vendasSwitch.addEventListener("change", () => {
-  updateVendasValues();
-  calculateTotal();
-});
-
-function updateVendasValues() {
-  const labels = document.querySelectorAll('.counter-row .counter-label');
-  labels.forEach(label => {
-    if (label.textContent.trim().startsWith("Reparo") && !label.textContent.includes("Carro")) {
-      label.nextElementSibling.querySelector("[data-qty]").dataset.price = vendasSwitch.checked ? 25000 : 25000;
-    }
-    if (label.textContent.trim().startsWith("Pneu")) {
-      label.nextElementSibling.querySelector("[data-qty]").dataset.price = vendasSwitch.checked ? 15000 : 15000;
-    }
-    if (label.textContent.trim().startsWith("Chave de Roda")) {
-      label.nextElementSibling.querySelector("[data-qty]").dataset.price = vendasSwitch.checked ? 15000 : 15000;
-    }
-  });
-}
-
 /* ===== CÁLCULO TOTAL ===== */
 function calculateTotal() {
   let total = 0;
