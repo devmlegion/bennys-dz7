@@ -75,23 +75,96 @@
 
 <h2 class="servicos-header">Combos</h2>
 
-  <div class="checkbox-row">
+  <div class="checkbox-row combo">
     <label>Tuning sem Blindagem <span class="price">$ 1.000.000</span></label>
     <input type="checkbox" id="fullTuning">
   </div>
 
-  <div class="checkbox-row">
+  <div class="checkbox-row combo">
     <label>Tuning com Blindagem <span class="price">$ 1.200.000</span></label>
     <input type="checkbox" id="fullTuningBlind">
   </div>
 
-<!-- ================= SERVIÇOS ================= -->
-  <h2 class="servicos-header">Serviços</h2>
+  <!-- <h2 class="vendas-header"> -->
+<h2 class="vendas-header vendas-section">
+  Vendas
+  <label class="vendas-checkbox-label">
+    <input type="checkbox" id="vendasSwitch">
+    <i class="fas fa-handshake" title="Parceria"></i>
+  </label>
+</h2>
 
-  <div class="checkbox-row"><label>Reparo na MEC <span class="price">$ 20.000</span></label><input type="checkbox" data-price="20000"></div>
-  <div class="checkbox-row"><label>Reparo no Sul <span class="price">$ 30.000</span></label><input type="checkbox" data-price="30000"></div>
-  <div class="checkbox-row"><label>Reparo no Norte <span class="price">$ 50.000</span></label><input type="checkbox" data-price="50000"></div>
+  <div class="counter-row">
+    <div class="counter-label">Kit<span class="price">$ 25.000</span></div>
 
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+
+      <input
+        type="number"
+        class="qty-input"
+        min="0"
+        max="500"
+        value="0"
+        data-qty
+        data-price="25000"
+        oninput="updateInputQty(this)"
+      >
+
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Pneu<span class="price">$ 15.000</span></div>
+
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+
+      <input
+        type="number"
+        class="qty-input"
+        min="0"
+        max="500"
+        value="0"
+        data-qty
+        data-price="15000"
+        oninput="updateInputQty(this)"
+      >
+
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="counter-row">
+    <div class="counter-label">Chave<span class="price">$ 15.000</span></div>
+
+    <div class="counter-controls">
+      <button onclick="changeQty(this,-1)">-</button>
+
+      <input
+        type="number"
+        class="qty-input"
+        min="0"
+        max="500"
+        value="0"
+        data-qty
+        data-price="15000"
+        oninput="updateInputQty(this)"
+      >
+
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+  </div>
+
+  <div class="comissao-row counter-row">
+  <div class="counter-label">
+    Valor à Depositar para MEC
+  </div>
+
+  <div id="comissao30">
+    0
+  </div>
 </div>
 
 </section>
@@ -100,11 +173,17 @@
 <section class="box">
   <h2 class="servicos-header">Estética</h2>
 
-  <div class="checkbox-row combo"><label>Pintura Primária <span class="price">$ 14.000</span></label><input type="checkbox" data-price="14000"></div>
+  <div class="checkbox-row"><label>Pintura Primária <span class="price">$ 14.000</span></label><input type="checkbox" data-price="14000"></div>
   <div class="checkbox-row"><label>Pintura Secundária <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
   <div class="checkbox-row"><label>Pintura Perolado <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
   <div class="checkbox-row"><label>Pintura Cromada <span class="price">$ 120.000</span></label><input type="checkbox" data-price="120000"></div>
   <div class="checkbox-row"><label>Decalque <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
+ 
+  <div class="checkbox-row"><label>Placa <span class="price">$ 18.000</span></label><input type="checkbox" data-price="18000"></div>
+  <div class="checkbox-row"><label>Buzina <span class="price">$ 18.000</span></label><input type="checkbox" data-price="18000"></div>
+
+  <div class="checkbox-row"><label>Janela <span class="price">$ 22.000</span></label><input type="checkbox" data-price="22000"></div>
+  <div class="checkbox-row"><label>Bancos <span class="price">$ 15.000</span></label><input type="checkbox" data-price="15000"></div>
  
   <div class="checkbox-row"><label>Troca de Roda <span class="price">$ 62.000</span></label><input type="checkbox" data-price="62000"></div>
   <div class="checkbox-row"><label>Cor das Rodas <span class="price">$ 32.000</span></label><input type="checkbox" data-price="32000"></div>
@@ -116,7 +195,6 @@
   <div class="checkbox-row"><label>Enfeites <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
   <div class="checkbox-row"><label>Ponteiros <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
   <div class="checkbox-row"><label>Painel <span class="price">$ 24.000</span></label><input type="checkbox" data-price="24000"></div>
-  <div class="checkbox-row"><label>Janela <span class="price">$ 22.000</span></label><input type="checkbox" data-price="22000"></div>
 
 </section>
 
@@ -124,7 +202,7 @@
 <section class="box">
   <h2 class="servicos-header">Estética 2</h2>
 
-  <div class="checkbox-row combo"><label>Aerofólio <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
+  <div class="checkbox-row"><label>Aerofólio <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
   <div class="checkbox-row"><label>Parachoque Dianteiro <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
   <div class="checkbox-row"><label>Parachoque Traseiro <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
   <div class="checkbox-row"><label>Saias Laterais <span class="price">$ 26.000</span></label><input type="checkbox" data-price="26000"></div>
@@ -138,11 +216,14 @@
   <div class="checkbox-row"><label>Neon <span class="price">$ 80.000</span></label><input type="checkbox" data-price="80000"></div>
   <div class="checkbox-row"><label>Xenon <span class="price">$ 80.000</span></label><input type="checkbox" data-price="80000"></div>
 
-  <div class="checkbox-row"><label>Placa <span class="price">$ 18.000</span></label><input type="checkbox" data-price="18000"></div>
-  <div class="checkbox-row"><label>Buzina <span class="price">$ 18.000</span></label><input type="checkbox" data-price="18000"></div>
+<!-- ================= SERVIÇOS ================= -->
+  <h2 class="servicos-header">Serviços</h2>
 
-  <div class="checkbox-row"><label>Bancos <span class="price">$ 15.000</span></label><input type="checkbox" data-price="15000"></div>
- 
+  <div class="checkbox-row combo"><label>Reparo na MEC <span class="price">$ 20.000</span></label><input type="checkbox" data-price="20000"></div>
+  <div class="checkbox-row"><label>Reparo no Sul <span class="price">$ 30.000</span></label><input type="checkbox" data-price="30000"></div>
+  <div class="checkbox-row"><label>Reparo no Norte <span class="price">$ 50.000</span></label><input type="checkbox" data-price="50000"></div>
+  <div class="checkbox-row"><label>Pneu na MEC <span class="price">$ 20.000</span></label><input type="checkbox" data-price="20000"></div>
+
 </section>
 
 </main>
