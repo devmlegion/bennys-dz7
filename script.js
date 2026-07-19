@@ -369,6 +369,29 @@ function createPedaços(event) {
   }, 500); // Tempo da animação (500ms)
 }
 
+/* ===== REPAROS - APENAS UM PODE SER MARCADO ===== */
+const reparos = document.querySelectorAll(
+  'input[type="checkbox"][data-price="20000"], ' +
+  'input[type="checkbox"][data-price="30000"], ' +
+  'input[type="checkbox"][data-price="50000"]'
+);
+
+reparos.forEach(reparo => {
+  reparo.addEventListener('change', function () {
+
+    if (!this.checked) return;
+
+    reparos.forEach(item => {
+      if (item !== this) {
+        item.checked = false;
+      }
+    });
+
+    calculateTotal();
+
+  });
+});
+
 // Detectar cliques em qualquer parte da tela
 document.addEventListener('click', createPedaços);
 
