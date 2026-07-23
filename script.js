@@ -10,6 +10,43 @@ const fullTuning = document.getElementById('fullTuning');
 const fullTuningBlind = document.getElementById('fullTuningBlind');
 const vendasSwitch = document.getElementById('vendasSwitch');
 
+/* ===== PARCERIA VENDEDORES ===== */
+vendasSwitch.addEventListener("change", () => {
+  updateVendasValues();
+  calculateTotal();
+});
+
+function updateVendasValues() {
+
+  document.querySelectorAll(".counter-row .counter-label").forEach(label => {
+
+    const campo = label.nextElementSibling?.querySelector("[data-qty]");
+    if (!campo) return;
+
+    const precoOriginal = {
+      "Kit": 25000,
+      "Pneu": 15000,
+      "Chave": 15000
+    };
+
+    const nome = label.textContent.trim();
+
+    for (const item in precoOriginal) {
+
+      if (nome.startsWith(item)) {
+
+        campo.dataset.price = vendasSwitch.checked
+          ? Math.round(precoOriginal[item] * 0.95) /* 0.95 corresponde a 5% de desconto */
+          : precoOriginal[item];
+
+      }
+
+    }
+
+  });
+
+}
+
 /* ===== FUNÇÃO PARA SETAR NÍVEL MÁXIMO ===== */
 function maxSelect(select) {
   select.selectedIndex = select.options.length - 1;
@@ -59,30 +96,12 @@ function calculateComissao30() {
 
   let subtotal = 0;
 
-  const reparo = document.querySelector(
-    '.counter-row:nth-of-type(1) .qty-input[data-price]'
-  );
+  document.querySelectorAll('[data-qty]').forEach(input => {
 
-  const vendasInputs = document.querySelectorAll(
-    '.qty-input'
-  );
-
-  vendasInputs.forEach(input => {
-
+    const quantidade = Number(input.value);
     const preco = Number(input.dataset.price);
 
-    if (
-      preco === 25000 ||
-      preco === 15000 ||
-      preco === 15000 ||
-      preco === 15000 ||
-      preco === 15000
-    ) {
-
-      subtotal +=
-        Number(input.value) * preco;
-
-    }
+    subtotal += quantidade * preco;
 
   });
 
@@ -91,10 +110,7 @@ function calculateComissao30() {
   const campo = document.getElementById('comissao30');
 
   if (campo) {
-
-    campo.textContent =
-      comissao.toLocaleString('pt-BR');
-
+    campo.textContent = comissao.toLocaleString('pt-BR');
   }
 
 }
@@ -391,6 +407,31 @@ reparos.forEach(reparo => {
 
   });
 });
+
+const mensagens = [
+  "CALCULADORA [ Benny's Original ] DZ7 - EM CASO DE DÚVIDAS PROCURE UM GERENTE+ !!",
+
+  "PARCERIA VENDEDORES - ATIVE O ÍCONE DE PARCERIA PARA CALCULAR 5% NO VALOR DA VENDA",
+
+  "ATENÇÃO MECÂNICOS - TODOS OS VALORES SÃO BASEADOS NA TABELA OFICIAL DA BENNY'S."
+];
+
+
+let mensagemAtual = 0;
+function trocarMensagem(){
+  const texto = document.getElementById("marqueeText");
+  mensagemAtual++;
+  if(mensagemAtual >= mensagens.length){
+    mensagemAtual = 0;
+  }
+
+  texto.style.animation = "none";
+  texto.offsetHeight;
+  texto.innerHTML = mensagens[mensagemAtual];
+  texto.style.animation = "marquee 40s linear infinite";
+}
+
+setInterval(trocarMensagem,40000);
 
 // Detectar cliques em qualquer parte da tela
 document.addEventListener('click', createPedaços);
